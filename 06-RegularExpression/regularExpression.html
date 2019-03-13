@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <style>
+            pre { color: blue;}
+            .pattern { color: red; font-family: courier; font-weight: bold; font-size: 1.2em}
+        </style>
+    </head>
+    <body>
+        <h1>Regular Expression Quick Tutorial</h1>
+        <p>To test your regular expressions, open <a href="https://regex101.com/" target="_blank">RegEx101</a> online tutorial</p>
+        <h2>Copy and Paste the following blue text into "Text String" in regex101.com</h2>
+<pre>
+Some text : The, then, therefore, There is another text
+Some numbers: 1, 12, 123, 1234, 12345, 123456, 1234567
+Words: running_testing, implementing
+Serial No: TC1234-23, TCK454-23, TRF4532-3 RF4534-23 RF4323-323
+in C, int    a=5;  and float  test = 0; // my comment
+Time : 01:20:30  or 1:20:30 or 1:2:3 without seconds 1:20
+There is b tag &lt;b&gt;Bold Content&lt;/b&gt; for example
+Find links &lt;a href="test.html"&gt;link&lt;/a&gt; and quote="text" another one is 
+&lt;a href="http://www.bilkent.edu.tr"&gt;Bilkent&lt;/a&gt; for Bilkent
+Some tags: &lt;span&gt;content&lt;/span&gt; and &lt;p&gt;content&lt;/p&gt;
+problem &lt;span&gt;content&lt;/p&gt; also selected.
+// First comment line
+   // Second comment line here.
+# Another type of comment line
+TC1234-45
+TC1234-45 TK2345-34
+</pre>
+        <h2>Apply and observe the results of following regular expressions written in red</h2>
+        <ol>
+            <li>
+                <span class="pattern">the</span>
+                <p>
+                    Find all occurrences of three characters having "t", "h" and "e"
+                </p>
+                
+            </li>
+            <li>
+                <span class="pattern">the|The</span>
+                <p>
+                    Pipe, |, operator means "OR"
+                </p>
+                
+            </li>
+            <li>
+                <span class="pattern">the|The|Some</span>
+                <p>
+                    Find all occurrences of "the", "The" or "Some"
+                </p>
+                
+            </li>
+            <li>
+                <span class="pattern">(t|T)he</span>
+                <p>
+                    ( ) : capture group, it contains lowercase OR uppercase t and then "h" and "e"
+                </p>
+            </li>
+            <li>
+                <span class="pattern">[tT]he</span>
+                <p>
+                    [ ] : options, Square bracket represents a single character which will contain the characters within square bracket. In this example, the character set in square bracket is t and T.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">[0123456789]</span>
+                <p>
+                    Find all single digits.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">[0-9]</span>
+                <p>
+                    Find all single digits.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\d</span>
+                <p>
+                    Find all single digits, [0-9] is exactly the same with \d
+                </p>
+            </li>
+            <li>
+                <span class="pattern">[^0-9]</span>
+                <p>
+                    Find all non single digits, ^ in square bracket means "not"
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\D</span>
+                <p>
+                    Find all non single digits, [^0-9] is equal to \D (capital D)
+                </p>
+            </li>
+            <li>
+                <span class="pattern">[a-z]</span>
+                <p>
+                    Find all lowercase letters
+                </p>
+            </li>
+            <li>
+                <span class="pattern">[A-Z]</span>
+                <p>
+                    Find all uppercase letters
+                </p>
+            </li>
+            <li>
+                <span class="pattern">[a-zA-Z]</span>
+                <p>
+                    Find all letters (lowercase or uppercase)
+                </p>
+            </li>
+            <li>
+                <span class="pattern">[a-zA-Z0-9]</span>
+                <p>
+                    Find all alphanumeric characters.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">[a-zA-Z0-9_]</span>
+                <p>
+                    Find all alphanumeric characters and underscore, this character set is called "word" characters.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\w</span>
+                <p>
+                    Word characters in short, [a-zA-Z0-9_] is equal to \w
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\W</span>
+                <p>
+                    Non Word characters in short, [^a-zA-Z0-9_] is equal to \W
+                </p>
+            </li>
+            <li>
+                <span class="pattern">[ \t\n]</span>
+                <p>
+                    Find white spaces. White space contains space, tab and new line.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\s</span>
+                <p>
+                    Find white spaces. [ \t\n] is equal to \s
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\S</span>
+                <p>
+                    Find non white space characters. [^ \t\n] is equal to \S
+                </p>
+            </li>
+            <li>
+                <span class="pattern">.</span>
+                <p>
+                    Find any single characters (except new line \n)
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\.</span>
+                <p>
+                    Find dot character itself. For meta characters, use backslash for escape.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\/\/</span>
+                <p>
+                    Find consecutive two forward slashes //
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\d\d\d\d</span>
+                <p>
+                    Find group of four digits.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\d{4}</span>
+                <p>
+                    { } : quantifier. Find group of four digits. (compact form)
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\d{4,}</span>
+                <p>
+                    { } : quantifier. Find group of four or more digits.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\d{2,4}</span>
+                <p>
+                    { } : quantifier. Find group of two, three and four digits.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\d{1,}</span>
+                <p>
+                    { } : quantifier. Find one or more digits.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\d+</span>
+                <p>
+                    { } : quantifier. Find one or more digits. {1,} is the same with "+"
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\d{0,}</span>
+                <p>
+                    { } : quantifier. Find zero or more digits.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\d*</span>
+                <p>
+                    { } : quantifier. Find one or more digits. {0,} is the same with "*"
+                </p>
+            </li>
+            <li>
+                <span class="pattern">[A-Z]{2}\d{4}-\d{2}</span>
+                <p>
+                    Find serial numbers (two capital, then four digits, then hyphen, the two digits).
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\b[A-Z]{2}\d{4}-\d{2}\b</span>
+                <p>
+                    \b : word boundary. Find serial numbers as a word, not a part of a bigger string.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">^[A-Z]{2}\d{4}-\d{2}\b</span>
+                <p>
+                    ^ : if caret is not within square bracket, it shows a position. It is the first word boundary position. It finds all lines starting with a serial number.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\b[A-Z]{2}\d{4}-\d{2}$</span>
+                <p>
+                    $ : it shows a position. It is the last word boundary position in a line. 
+                    It finds all lines ending with a serial number.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">^[A-Z]{2}\d{4}-\d{2}$</span>
+                <p>
+                    ^pattern$ shows exact matching. Find all lines having only one serial number.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\b(?:int|float)\s+(\w+)\s*=\s*(\d+)\b</span>
+                <p>
+                    * : a quantifier for zero or more occurrences. \s* means zero or more occurrences of white space character<br>
+                    (?: ) is used for grouping, but regex does not capture(save) the group's content. It is more efficient than capture group ( ) in terms of memory usage. <br>
+                    It finds all float or int variable definitions, it captures all variable names and their values for all full matches.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">\b\d{1,2}:\d{1,2}(:\d{1,2})?\b</span>
+                <p>
+                    ? : means optional, a quantifier for zero or one occurrence. It finds hours and minutes separed by colon (:), the second at the end is optional. 12:34:56 or 12:34, the last part is optional.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">&lt;b&gt;(.*)&lt;\/b&gt;</span>
+                <p>
+                    Find the content of b tags.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">href="(.*?)"</span>
+                <p>
+                    ? after *, or + means lazy mode. It finds the smallest match to the regex.
+                    By default, * and + execute in greedy mode, means it finds the largest match.
+                    Test with or without ? after *.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">&lt;(\w+)\s*.*?&gt;.*&lt;\/\1&gt;</span>
+                <p>
+                    \1 is a back reference. It references to the first capture group.
+                    The first capture group is (\w+) that shows the opening tag. In this way, the closing tag must be the same with opening tag.
+                </p>
+            </li>
+            <li>
+                <span class="pattern">^\s*\/\/(.*)|^\s*#(.*)</span>
+                <p>
+                    Find all comment lines (starting with // or #)
+                </p>
+            </li>
+            <li>
+                <span class="pattern">^\s*(?:\/\/|#)(.*)</span>
+                <p>
+                    Find all comment lines (starting with // or #) - Compact form
+                </p>
+            </li>
+        </ol>
+        
+    </body>
+</html>
