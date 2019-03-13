@@ -1,0 +1,16 @@
+ body { font-family: arial;}
+h1 { text-align: center;}
+table { margin:30px auto;}
+table [type="text"] { width: 200px;}
+td { padding: 5px 10px; text-align: center;}
+#resultTable { border-collapse: collapse;}
+#resultTable th {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 5px 20px;
+    background: #FF9;
+}
+[colspan='6'] { text-align: right; font-size: 0.8em;}
+#resultTable tr:nth-child(2n+1) { background: #DDD;}
+
+#errorMessages p { color: red; font-style: italic; font-size: 0.8em; text-align: center;}
